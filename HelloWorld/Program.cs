@@ -27,7 +27,27 @@ namespace HelloWorld
             // Generate a random index less than the size of the array.  
             int index = rand.Next(animals.Length);
             // Display the result.  
-            Console.WriteLine($"Would you like a {favoriteColor} {animals[index]}");
+            Console.WriteLine($"Would you like a {favoriteColor} {animals[index]}?");
+
+
+            Console.WriteLine("Enter some charachters");
+            var charachters = Console.ReadLine();
+            string newOutput = string.Empty;
+            var counter = 1;
+            foreach (char c in charachters)
+            {
+                for (int i = 0; i < counter; i++)
+                {
+                    newOutput += c;
+                }
+                newOutput += "-";
+                counter++;
+
+            }
+            Console.WriteLine($"Here is the new output {newOutput}");
+
+
+
 
             Console.WriteLine("Choose what greeting you would like! Southern, Midwestern, or British");
             var input = Console.ReadLine();
