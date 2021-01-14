@@ -6,8 +6,11 @@ namespace HelloWorld
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Howdy Y'all!!");
-            Console.ReadKey();
+            Console.WriteLine("Whats your name?");
+            var userName = Console.ReadLine();
+
+            Console.WriteLine($"Hello {userName}, Let's Party!!");
+
 
             var animals = new string[] { "Triceratops", "Gorilla", "Corgi", "Toucan" };
 
@@ -15,6 +18,16 @@ namespace HelloWorld
             {
                 Console.WriteLine(animal);
             }
+
+            Console.WriteLine("Whats your favorite color?");
+            var favoriteColor = Console.ReadLine();
+
+            // Create a Random object  
+            Random rand = new Random();
+            // Generate a random index less than the size of the array.  
+            int index = rand.Next(animals.Length);
+            // Display the result.  
+            Console.WriteLine($"Would you like a {favoriteColor} {animals[index]}");
 
             Console.WriteLine("Choose what greeting you would like! Southern, Midwestern, or British");
             var input = Console.ReadLine();
