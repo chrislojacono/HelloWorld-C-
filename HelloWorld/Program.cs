@@ -20,7 +20,8 @@ namespace HelloWorld
             var calcCounter = 0;
             foreach (var number in numberSplit)
             {
-                    int stringToNumber = Int32.Parse(number);
+                int stringToNumber = Int32.Parse(number);
+
                 if (calcCounter == 0)
                 {
                     a += stringToNumber;
@@ -38,8 +39,7 @@ namespace HelloWorld
                 }
 
             }
-            calcCounter = 0;
-            var average = a + b + c / 3;
+
             if (calculatorInput == "multiply")
             {
                 var multiply = $"Your numbers multiplied together are {a * b * c}";
@@ -54,6 +54,10 @@ namespace HelloWorld
             {
                 var add = $"Your numbers added together total  {a + b + c}";
                 Console.WriteLine(add);
+            }
+            else if (calculatorInput == "average")
+            {
+                Console.WriteLine($"Your average of the 3 numbers is {a + b + c / 3}");
             }
 
 
