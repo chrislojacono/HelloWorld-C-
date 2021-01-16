@@ -130,6 +130,9 @@ namespace HelloWorld
             Console.WriteLine($"Hello {userName}, Let's Party!!");
 
 
+            Console.WriteLine($"Hello {userName}, Let's Party!!");
+
+
             var animals = new string[] { "Triceratops", "Gorilla", "Corgi", "Toucan" };
 
             foreach (var animal in animals)
@@ -174,6 +177,36 @@ namespace HelloWorld
             }
             string finalOutput = newOutput.TrimEnd('-');
             Console.WriteLine($"Here is the new output {finalOutput}");
+
+
+
+
+            Console.WriteLine("Whats your favorite color?");
+            var favoriteColor = Console.ReadLine();
+
+            // Create a Random object  
+            Random rand = new Random();
+            // Generate a random index less than the size of the array.  
+            int index = rand.Next(animals.Length);
+            // Display the result.  
+            Console.WriteLine($"Would you like a {favoriteColor} {animals[index]}?");
+
+
+            Console.WriteLine("Enter some charachters");
+            var charachters = Console.ReadLine();
+            string newOutput = string.Empty;
+            var counter = 1;
+            foreach (char c in charachters)
+            {
+                for (int i = 0; i < counter; i++)
+                {
+                    newOutput += c;
+                }
+                newOutput += "-";
+                counter++;
+
+            }
+            Console.WriteLine($"Here is the new output {newOutput}");
 
 
 
