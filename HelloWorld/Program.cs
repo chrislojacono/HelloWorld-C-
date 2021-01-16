@@ -57,8 +57,70 @@ namespace HelloWorld
             }
             else if (calculatorInput == "average")
             {
-                Console.WriteLine($"Your average of the 3 numbers is {a + b + c / 3}");
+                Console.WriteLine($"Your average of the 3 numbers is {(a + b + c) / 3}");
             }
+            else if (calculatorInput == "divide")
+            {
+                Console.WriteLine($"Your answer is {a / b / c}");
+            }
+
+
+            //MASK SENSITIVE INFORMATION
+            Console.WriteLine("Please enter a secret:");
+            var secretInput = Console.ReadLine();
+            var joinedInput = string.Join("", secretInput.Split(default(string[]), StringSplitOptions.RemoveEmptyEntries));
+            string maskedAnswer = String.Empty;
+
+            //Making a string of *
+            foreach (var charachter in joinedInput)
+            {
+                maskedAnswer += '*';
+            }
+
+            //Making it 4 less
+  
+            var lastFour = secretInput.Substring(secretInput.Length - 4);
+            int indexOfMask = maskedAnswer.Length - 5;
+            var choppedString = maskedAnswer.Remove(indexOfMask, 4);
+
+            //Concating the last 4 with the stars
+            var finalSecretOutput = choppedString + lastFour;
+
+            Console.WriteLine($"{finalSecretOutput}");
+
+
+
+
+            //VALIDATOR
+
+            Console.WriteLine("Enter a Pin code between 4-8 numbers");
+            var pinCode = Console.ReadLine();
+            bool switcher = true;
+
+            try
+            {
+                int result = Int32.Parse(pinCode);
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine($"Your pin must be all numbers '{pinCode}' is invalid");
+                switcher = false;
+            }
+
+            if (pinCode.Length < 4)
+            {
+                Console.WriteLine("Your Pin is too short");
+            }
+            else if (pinCode.Length > 8)
+            {
+                Console.WriteLine("Your pin is too long");
+            }
+            else if(switcher)
+            {
+                Console.WriteLine("Success!");
+            }
+
+
 
 
 
@@ -90,18 +152,18 @@ namespace HelloWorld
             var charachters = Console.ReadLine();
             string newOutput = string.Empty;
             var counter = 1;
-            foreach (char cha in charachters)
+            foreach (char charachter in charachters)
             {
                 for (int i = 0; i < counter; i++)
                 {
                     if (i == 0)
                     {
-                        var letter = Char.ToUpper(cha);
+                        var letter = Char.ToUpper(charachter);
                         newOutput += letter;
                     }
                     else
                     {
-                        var lowerLetter = Char.ToLower(cha);
+                        var lowerLetter = Char.ToLower(charachter);
                         newOutput += lowerLetter;
                     }
 
@@ -110,7 +172,8 @@ namespace HelloWorld
                 counter++;
 
             }
-            Console.WriteLine($"Here is the new output {newOutput}");
+            string finalOutput = newOutput.TrimEnd('-');
+            Console.WriteLine($"Here is the new output {finalOutput}");
 
 
 
@@ -155,6 +218,7 @@ namespace HelloWorld
                 Console.WriteLine($"You entered the sentence: {sentence}");
 
             } while (sentence != "quit");
+
         }
     }
 }
